@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jone & Jon - Gure Ezkontza</title>
+    <!-- Google Fonts tipografia dotoreak erabiltzeko -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C302E; /* Berde ilun dotorea */
+            --secondary: #90978B; /* Berde grisaxka argia */
+            --bg-color: #F9F8F6; /* Hondo kolore harea leuna */
+            --text: #4A4A4A;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: transparent; /* Hondoko kolore solidoa kendu argazkia ikusi dadin */
+            color: var(--text);
+            text-align: center;
+        }
+
+        /* Argazkia atzeko planoan finko pantaila osoan */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(44, 48, 46, 0.4), rgba(44, 48, 46, 0.4)), url('Joneetajon.jpg') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: normal;
+            color: var(--primary);
+        }
+
+        /* Goiburua - Atzeko plano nagusia */
+        .hero {
+            height: 100vh; /* Argazkia pantaila osora luzatzeko */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            /* Atzeko planoko argazkia orain body::before-an dago finko */
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Edukiaren edukiontzia */
+        .container {
+            max-width: 800px;
+            margin: -50px auto 40px auto;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.75); /* Zuria izan beharrean, zeharrargia argazkia ikusteko */
+            backdrop-filter: blur(10px); /* Kristal efektua */
+            -webkit-backdrop-filter: blur(10px); /* Safari nabigatzaileentzako */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Itzala apur bat nabarmendu */
+            position: relative;
+            z-index: 10;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Izenburuen azpiko marra apaingarria */
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--secondary);
+            margin: 15px auto;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* Egunaren eta lekuaren kaxak */
+        .details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .detail-box {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6); /* Kaxa txiki hauek ere zeharrargiak */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+        }
+
+        .detail-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Argazkiaren diseinua */
+        .photo-container {
+            margin: 40px 0;
+        }
+
+        .photo-container img {
+            width: 100%;
+            max-width: 600px; /* Argazkia ez da gehiegi handituko ordenagailuetan */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Botoiak */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Oina */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        /* Mugikorretarako egokitzapena */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 3em; }
+            .hero p { font-size: 1.2em; }
+            .details { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Goiburua -->
+    <div class="hero">
+        <h1>Jone & Jon</h1>
+        <p>2026ko Urriaren 17a</p>
+    </div>
+
+    <!-- Eduki nagusia -->
+    <div class="container">
+        
+        <div class="section">
+            <h2>Gure Eguna</h2>
+            <p>Poz handiz gonbidatzen zaituztegu gure bizitzako egunik berezienetako batera. Zuekin ospatu nahi dugu!</p>
+            
+            <div class="details">
+                <div class="detail-box">
+                    <h3>Eguna</h3>
+                    <p>2026ko Urriaren 17a, Larunbata</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Lekua</h3>
+                    <p>Txitxardin Jatetxea<br>Lasarte</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="photo-container">
+                <!-- Ordezko argazkia lehen zegoen bezala utzita -->
+                <img src="zure-beste-argazkia.jpg" alt="Ezkontza" onerror="this.src='https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop'; this.onerror=null;">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte Hartu</h2>
+            <p>Mesedez, baieztatu zure asistentzia lehenbailehen eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!</p>
+            <div class="btn-container">
+                <!-- GOGORATU ESTEKAK ALDATZEA ('HEMEN_ZURE_ESTEKA' testua zure Google Forms estekengatik aldatu) -->
+                <a href="HEMEN_ZURE_KONFIRMAZIO_ESTEKA" target="_blank" class="btn">Asistentzia Baieztatu</a>
+                <a href="https://open.spotify.com/playlist/7IIoS2XmNg3msiAo99xd8I?si=c302b98c8f944c05&amp;pt=daf73f418c5bbf774b614fdd24c8f136" target="_blank" class="btn btn-outline">Kanta Proposatu</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Oina -->
+    <footer>
+        <p>&copy; 2026 Jone Peñagarikano Urruzola eta Jon Iruretagoyena Rama</p>
+    </footer>
+
+</body>
+</html>
