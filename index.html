@@ -147,7 +147,7 @@
         .btn-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-top: 30px;
         }
@@ -156,7 +156,7 @@
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 15px 30px;
+            padding: 15px 25px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
@@ -181,6 +181,16 @@
             color: white;
         }
 
+        /* WhatsApp botoiaren estilo berezia */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
         /* Oina */
         footer {
             background-color: var(--primary);
@@ -194,6 +204,8 @@
             .hero h1 { font-size: 3em; }
             .hero p { font-size: 1.2em; }
             .details { flex-direction: column; }
+            .btn-container { flex-direction: column; align-items: center; }
+            .btn { width: 80%; text-align: center; margin-bottom: 10px;}
         }
     </style>
 </head>
@@ -233,10 +245,13 @@
 
         <div class="section">
             <h2>Parte Hartu</h2>
-            <p>Mesedez, baieztatu zure asistentzia lehenbailehen eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!</p>
+            <p>Mesedez, baieztatu zure asistentzia lehenbailehen, sartu gure WhatsApp komunitatean eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!</p>
             <div class="btn-container">
-                <!-- GOGORATU ESTEKAK ALDATZEA ('HEMEN_ZURE_ESTEKA' testua zure Google Forms estekengatik aldatu) -->
-                <a href="HEMEN_ZURE_KONFIRMAZIO_ESTEKA" target="_blank" class="btn">Asistentzia Baieztatu</a>
+                <!-- Google Forms asistentzia -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScf7jTOkWmcocfyKGFSoroaXEpH9Ng8CPU-XtQ24SLPRfjLJQ/viewform?usp=header" target="_blank" class="btn">Asistentzia Baieztatu</a>
+                <!-- WhatsApp komunitatea -->
+                <a href="https://chat.whatsapp.com/EqyJrBLvXfFLVR85tA7dIR" target="_blank" class="btn btn-whatsapp">WhatsApp Komunitatea</a>
+                <!-- Spotify kanta -->
                 <a href="https://open.spotify.com/playlist/7IIoS2XmNg3msiAo99xd8I?si=c302b98c8f944c05&amp;pt=daf73f418c5bbf774b614fdd24c8f136" target="_blank" class="btn btn-outline">Kanta Proposatu</a>
             </div>
         </div>
