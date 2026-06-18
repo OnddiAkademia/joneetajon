@@ -131,6 +131,18 @@
             margin-bottom: 10px;
         }
 
+        /* Lekuaren esteka diseinua */
+        .detail-box a.map-link {
+            color: #666; /* Mismo color que el texto normal */
+            text-decoration: none;
+            font-weight: normal; /* Quitamos la negrita */
+            transition: color 0.3s;
+        }
+
+        .detail-box a.map-link:hover {
+            color: var(--secondary); /* Ligero cambio de color al pasar el ratón */
+        }
+
         /* Argazkiaren diseinua */
         .photo-container {
             margin: 40px 0;
@@ -231,7 +243,8 @@
                 </div>
                 <div class="detail-box">
                     <h3>Lekua</h3>
-                    <p>Txitxardin Jatetxea<br>Lasarte</p>
+                    <!-- HEMEN DAGO GOOGLE MAPS ESTEKA TXERTATUTA -->
+                    <p><a href="https://www.google.com/maps/place/Txintxardin+-+Brasa+eta+tradizioa/@43.250828,-2.0229909,17z/data=!3m1!4b1!4m6!3m5!1s0xd51b144936f8cc1:0xc4adf42f5359eb69!8m2!3d43.250828!4d-2.020416!16s%2Fg%2F11h4n9k1s0?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Txitxardin Jatetxea</a><br>Lasarte</p>
                 </div>
             </div>
         </div>
