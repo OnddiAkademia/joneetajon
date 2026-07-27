@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jone & Jon - Gure Ezkontza</title>
+    <title id="doc-title">Jone & Jon - Gure Ezkontza</title>
     <!-- Google Fonts tipografia dotoreak erabiltzeko -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -49,7 +49,6 @@
             justify-content: center;
             align-items: center;
             color: white;
-            /* Atzeko planoko argazkia orain body::before-an dago finko */
             padding: 20px;
         }
 
@@ -133,14 +132,14 @@
 
         /* Lekuaren esteka diseinua */
         .detail-box a.map-link {
-            color: #666; /* Mismo color que el texto normal */
+            color: #666;
             text-decoration: none;
-            font-weight: normal; /* Quitamos la negrita */
+            font-weight: normal;
             transition: color 0.3s;
         }
 
         .detail-box a.map-link:hover {
-            color: var(--secondary); /* Ligero cambio de color al pasar el ratón */
+            color: var(--secondary);
         }
 
         /* Argazkiaren diseinua */
@@ -150,7 +149,7 @@
 
         .photo-container img {
             width: 100%;
-            max-width: 600px; /* Argazkia ez da gehiegi handituko ordenagailuetan */
+            max-width: 600px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
@@ -175,6 +174,7 @@
             font-size: 1.1em;
             transition: background-color 0.3s, transform 0.2s;
             cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
@@ -203,6 +203,14 @@
             background-color: #128C7E;
         }
 
+        /* Hizkuntza botoia */
+        .lang-switch-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -10px;
+            padding-bottom: 30px;
+        }
+
         /* Oina */
         footer {
             background-color: var(--primary);
@@ -226,23 +234,23 @@
     <!-- Goiburua -->
     <div class="hero">
         <h1>Jone & Jon</h1>
-        <p>2026ko Urriaren 17a</p>
+        <p id="hero-date">2026ko Urriaren 17a</p>
     </div>
 
     <!-- Eduki nagusia -->
     <div class="container">
         
         <div class="section">
-            <h2>Gure Eguna</h2>
-            <p>Poz handiz gonbidatzen zaituztegu gure bizitzako egunik berezienetako batera. Zuekin ospatu nahi dugu!</p>
+            <h2 id="sec-day-title">Gure Eguna</h2>
+            <p id="sec-day-desc">Poz handiz gonbidatzen zaituztegu gure bizitzako egunik berezienetako batera. Zuekin ospatu nahi dugu!</p>
             
             <div class="details">
                 <div class="detail-box">
-                    <h3>Eguna</h3>
-                    <p>2026ko Urriaren 17a, Larunbata</p>
+                    <h3 id="box-day-title">Eguna</h3>
+                    <p id="box-day-desc">2026ko Urriaren 17a, Larunbata</p>
                 </div>
                 <div class="detail-box">
-                    <h3>Lekua</h3>
+                    <h3 id="box-place-title">Lekua</h3>
                     <!-- HEMEN DAGO GOOGLE MAPS ESTEKA TXERTATUTA -->
                     <p><a href="https://maps.app.goo.gl/BdpUZkpDDU8mdHDR9" target="_blank" class="map-link">Fagoaga Dorretxea</a><br>Oiartzun</p>
                 </div>
@@ -257,16 +265,21 @@
         </div>
 
         <div class="section">
-            <h2>Parte Hartu</h2>
-            <p>Mesedez, baieztatu zure asistentzia lehenbailehen, sartu gure WhatsApp komunitatean eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!</p>
+            <h2 id="sec-part-title">Parte Hartu</h2>
+            <p id="sec-part-desc">Mesedez, baieztatu zure asistentzia lehenbailehen, sartu gure WhatsApp komunitatean eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!</p>
             <div class="btn-container">
                 <!-- Google Forms asistentzia -->
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScf7jTOkWmcocfyKGFSoroaXEpH9Ng8CPU-XtQ24SLPRfjLJQ/viewform?usp=header" target="_blank" class="btn">Asistentzia Baieztatu</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScf7jTOkWmcocfyKGFSoroaXEpH9Ng8CPU-XtQ24SLPRfjLJQ/viewform?usp=header" target="_blank" class="btn" id="btn-assist">Asistentzia Baieztatu</a>
                 <!-- WhatsApp komunitatea -->
-                <a href="https://chat.whatsapp.com/EqyJrBLvXfFLVR85tA7dIR" target="_blank" class="btn btn-whatsapp">WhatsApp Komunitatea</a>
+                <a href="https://chat.whatsapp.com/EqyJrBLvXfFLVR85tA7dIR" target="_blank" class="btn btn-whatsapp" id="btn-wa">WhatsApp Komunitatea</a>
                 <!-- Spotify kanta -->
-                <a href="https://open.spotify.com/playlist/7IIoS2XmNg3msiAo99xd8I?si=2f133218a64a4c36&pt=01815eebb14de203bf33fd996e8bacaa" target="_blank" class="btn btn-outline">Kanta Proposatu</a>
+                <a href="https://open.spotify.com/playlist/7IIoS2XmNg3msiAo99xd8I?si=2f133218a64a4c36&pt=01815eebb14de203bf33fd996e8bacaa" target="_blank" class="btn btn-outline" id="btn-song">Kanta Proposatu</a>
             </div>
+        </div>
+        
+        <!-- Botoia hizkuntza aldatzeko -->
+        <div class="lang-switch-container">
+            <button id="lang-btn" onclick="toggleLanguage()" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary); font-size: 0.9em; padding: 10px 20px;">Traducir ao Galego</button>
         </div>
 
     </div>
@@ -276,5 +289,63 @@
         <p>&copy; 2026 Jone Peñagarikano Urruzola eta Jon Iruretagoyena Rama</p>
     </footer>
 
+    <!-- HIZKUNTZA ALDATZEKO SCRIPT-A -->
+    <script>
+        let currentLang = 'eu';
+        
+        const translations = {
+            "eu": {
+                "hero-date": "2026ko Urriaren 17a",
+                "sec-day-title": "Gure Eguna",
+                "sec-day-desc": "Poz handiz gonbidatzen zaituztegu gure bizitzako egunik berezienetako batera. Zuekin ospatu nahi dugu!",
+                "box-day-title": "Eguna",
+                "box-day-desc": "2026ko Urriaren 17a, Larunbata",
+                "box-place-title": "Lekua",
+                "sec-part-title": "Parte Hartu",
+                "sec-part-desc": "Mesedez, baieztatu zure asistentzia lehenbailehen, sartu gure WhatsApp komunitatean eta ez ahaztu egun horretan dantzatu nahi duzun kanta proposatzea!",
+                "btn-assist": "Asistentzia Baieztatu",
+                "btn-wa": "WhatsApp Komunitatea",
+                "btn-song": "Kanta Proposatu",
+                "lang-btn": "Traducir ao Galego",
+                "doc-title": "Jone & Jon - Gure Ezkontza"
+            },
+            "gl": {
+                "hero-date": "17 de Outubro de 2026",
+                "sec-day-title": "O Noso Día",
+                "sec-day-desc": "Con moita alegría convidámosvos a un dos días máis especiais da nosa vida. Queremos celebralo con vós!",
+                "box-day-title": "Día",
+                "box-day-desc": "Sábado, 17 de Outubro de 2026",
+                "box-place-title": "Lugar",
+                "sec-part-title": "Participa",
+                "sec-part-desc": "Por favor, confirma a túa asistencia o antes posible, únete á nosa comunidade de WhatsApp e non esquezas propoñer a canción que queres bailar ese día!",
+                "btn-assist": "Confirmar Asistencia",
+                "btn-wa": "Comunidade de WhatsApp",
+                "btn-song": "Propoñer Canción",
+                "lang-btn": "Itzuli euskarara (Volver al Euskera)",
+                "doc-title": "Jone & Jon - A nosa voda"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'eu' ? 'gl' : 'eu';
+            
+            document.getElementById('hero-date').innerText = translations[currentLang]["hero-date"];
+            document.getElementById('sec-day-title').innerText = translations[currentLang]["sec-day-title"];
+            document.getElementById('sec-day-desc').innerText = translations[currentLang]["sec-day-desc"];
+            document.getElementById('box-day-title').innerText = translations[currentLang]["box-day-title"];
+            document.getElementById('box-day-desc').innerText = translations[currentLang]["box-day-desc"];
+            document.getElementById('box-place-title').innerText = translations[currentLang]["box-place-title"];
+            document.getElementById('sec-part-title').innerText = translations[currentLang]["sec-part-title"];
+            document.getElementById('sec-part-desc').innerText = translations[currentLang]["sec-part-desc"];
+            document.getElementById('btn-assist').innerText = translations[currentLang]["btn-assist"];
+            document.getElementById('btn-wa').innerText = translations[currentLang]["btn-wa"];
+            document.getElementById('btn-song').innerText = translations[currentLang]["btn-song"];
+            document.getElementById('lang-btn').innerText = translations[currentLang]["lang-btn"];
+            document.title = translations[currentLang]["doc-title"];
+            
+            // Atributo HTML del idioma
+            document.documentElement.lang = currentLang;
+        }
+    </script>
 </body>
 </html>
