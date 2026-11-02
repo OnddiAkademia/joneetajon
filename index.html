@@ -7,23 +7,27 @@
     <!-- Google Fonts tipografia dotoreak erabiltzeko -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #2C302E; /* Fondo oscuro por si la imagen tarda en cargar */
+            width: 100%;
+            background-color: #000; /* Fondo negro puro para que no asome nada gris */
             text-align: center;
+            overflow-x: hidden; /* Evita que haya una línea o scroll lateral en móviles */
         }
 
         /* Contenedor de la foto para que marque el alto real de la página */
         .scrollable-bg {
             position: relative;
             width: 100%;
+            font-size: 0; /* TRUCO: Elimina la línea inferior fantasma de las imágenes en algunos navegadores */
         }
 
         .scrollable-bg img {
             width: 100%;
-            min-height: 100vh; /* Asegura que la imagen ocupe AL MENOS toda la altura de la pantalla (ideal para móviles) */
-            object-fit: cover; /* Recorta la imagen proporcionalmente si es necesario para que no queden huecos negros ni se deforme */
+            min-height: 100vh; /* Altura mínima estándar */
+            min-height: 100dvh; /* Altura dinámica para móviles modernos (ignora la barra de navegación al calcular) */
+            object-fit: cover;
             display: block;
         }
 
@@ -31,18 +35,19 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 48, 46, 0.3); /* Filtro oscuro para que resalte bien el texto blanco */
+            right: 0;
+            bottom: 0; /* Enganchado a los 4 bordes exactos */
+            background: rgba(44, 48, 46, 0.3); /* Filtro oscuro */
         }
 
         /* Goiburua - Pantaila erdian zentratuta eta finko (FIJO) */
         .hero {
-            position: fixed; /* Esto hace que el texto se quede clavado en la pantalla */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh; 
+            height: 100vh;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -50,21 +55,21 @@
             color: white;
             padding: 20px;
             box-sizing: border-box;
-            pointer-events: none; /* Permite hacer scroll aunque pongas el dedo/ratón sobre el texto */
+            pointer-events: none; 
             z-index: 10;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-weight: normal;
-            font-size: 5em; /* Un poco más grande para que destaque más */
+            font-size: 5em;
             margin: 0;
             color: white;
-            text-shadow: 2px 3px 6px rgba(0,0,0,0.4); /* Sombra para que se lea bien sobre la foto */
+            text-shadow: 2px 3px 6px rgba(0,0,0,0.4);
         }
 
         .hero p {
-            font-size: 2em; /* Texto secundario más grande también */
+            font-size: 2em; 
             font-style: italic;
             font-family: 'Playfair Display', serif;
             letter-spacing: 2px;
