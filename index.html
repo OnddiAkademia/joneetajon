@@ -12,7 +12,6 @@
             padding: 0;
             background-color: #2C302E; /* Fondo oscuro por si la imagen tarda en cargar */
             text-align: center;
-            /* Hemos eliminado 'overflow: hidden' para permitir hacer scroll hacia abajo */
         }
 
         /* Contenedor de la foto para que marque el alto real de la página */
@@ -23,7 +22,8 @@
 
         .scrollable-bg img {
             width: 100%;
-            height: auto; /* Mantiene la proporción original. Al ser alargada, habilitará el scroll */
+            min-height: 100vh; /* Asegura que la imagen ocupe AL MENOS toda la altura de la pantalla (ideal para móviles) */
+            object-fit: cover; /* Recorta la imagen proporcionalmente si es necesario para que no queden huecos negros ni se deforme */
             display: block;
         }
 
