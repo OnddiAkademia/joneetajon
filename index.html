@@ -12,24 +12,36 @@
             padding: 0;
             background-color: #2C302E; /* Fondo oscuro por si la imagen tarda en cargar */
             text-align: center;
-            overflow: hidden; /* Evita que se pueda hacer scroll hacia abajo */
+            /* Hemos eliminado 'overflow: hidden' para permitir hacer scroll hacia abajo */
         }
 
-        /* Argazkia atzeko planoan finko pantaila osoan */
-        body::before {
-            content: '';
-            position: fixed;
+        /* Contenedor de la foto para que marque el alto real de la página */
+        .scrollable-bg {
+            position: relative;
+            width: 100%;
+        }
+
+        .scrollable-bg img {
+            width: 100%;
+            height: auto; /* Mantiene la proporción original. Al ser alargada, habilitará el scroll */
+            display: block;
+        }
+
+        .scrollable-bg .overlay {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            /* Aquí cargará la foto de vuestra boda. He puesto el nombre 'ezkontza.jpg' */
-            background: linear-gradient(rgba(44, 48, 46, 0.3), rgba(44, 48, 46, 0.3)), url('ezkontza.jpg') center/cover no-repeat;
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 48, 46, 0.3); /* Filtro oscuro para que resalte bien el texto blanco */
         }
 
-        /* Goiburua - Pantaila erdian zentratuta */
+        /* Goiburua - Pantaila erdian zentratuta eta finko (FIJO) */
         .hero {
+            position: fixed; /* Esto hace que el texto se quede clavado en la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100vh; 
             display: flex;
             flex-direction: column;
@@ -37,6 +49,9 @@
             align-items: center;
             color: white;
             padding: 20px;
+            box-sizing: border-box;
+            pointer-events: none; /* Permite hacer scroll aunque pongas el dedo/ratón sobre el texto */
+            z-index: 10;
         }
 
         .hero h1 {
@@ -66,7 +81,13 @@
 </head>
 <body>
 
-    <!-- Testu nagusia -->
+    <!-- Fondo scrolleable con la imagen completa -->
+    <div class="scrollable-bg">
+        <div class="overlay"></div>
+        <img src="ezkontza.jpg" alt="Jone eta Jon Ezkontza">
+    </div>
+
+    <!-- Testu nagusia (fijo en el centro de la pantalla) -->
     <div class="hero">
         <h1>Jone & Jon</h1>
         <p>hori ere ingenun</p>
